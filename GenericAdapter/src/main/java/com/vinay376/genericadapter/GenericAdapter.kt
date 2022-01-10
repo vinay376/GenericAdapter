@@ -33,7 +33,7 @@ abstract class GenericAdapter<T, M> :
             holder as ViewHolder
             holder.binding.root.setAnimation()
             val dataClass = getItem(position)
-            onBindHolder(holder.binding as T, dataClass)
+            onBindHolder(holder.binding as T, dataClass,position)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -43,7 +43,7 @@ abstract class GenericAdapter<T, M> :
 
     abstract fun getResourceLayoutId(): Int
 
-    abstract fun onBindHolder(holder: T, dataClass: M)
+    abstract fun onBindHolder(holder: T, dataClass: M, position: Int)
     
     /** Animation Function */
     private fun View.setAnimation() {
